@@ -19,7 +19,6 @@ main {
     margin: auto;
     height: 90%;
     width: 80%;
-    border: 2px solid red;
 }
 
 .grid-container {
@@ -28,8 +27,85 @@ main {
     height: 100%;
     grid-template-columns: auto auto auto;
     margin-top: 50px;
+    place-items: center;
 }
 
 .grid-item {
-    border: #2196f3 1px solid;
+    width: 300px;
+    height: 155px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.learn-more-container {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.first-div {
+    text-align: center;
+    /* transition: all 0.3s ease-in-out; */
+    animation: toptobottom 300ms ease-in 0s 1 normal none;
+}
+
+.first-div h2 {
+    color: red;
+}
+
+.trying {
+    display: none;
+    animation: bottomtotop 300ms ease-in 0s normal;
+}
+
+.trying button {
+    padding: 10px 5px 10px 5px;
+    border-color: red;
+    background-color: white;
+}
+
+.trying button:hover {
+    cursor: pointer;
+    background-color: red;
+    color: white;
+}
+
+@keyframes toptobottom {
+    0% {
+        margin-top: -40%;
+    }
+    50% {
+        margin-top: -20%;
+    }
+    100% {
+        margin-top: 0%;
+    }
+}
+
+@keyframes bottomtotop {
+    from {
+        transform: translateY(40px);
+    }
+    t0 {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
