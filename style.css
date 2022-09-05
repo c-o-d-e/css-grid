@@ -36,11 +36,18 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: all 0.5s ease-in-out;
 }
 
 img {
     object-fit: cover;
     width: 100%;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+}
+
+.grid-item:hover img {
+    opacity: 0;
 }
 
 .learn-more-container {
@@ -53,10 +60,23 @@ img {
     align-items: center;
 }
 
+.grid-item:hover .learn-more-container {
+    display: flex;
+    position: relative;
+    top: -75%;
+    opacity: 1;
+    animation: toptobottom 500ms ease 10ms 1 normal none;
+}
+
+.grid-item:hover .trying {
+    display: block;
+    position: relative;
+    bottom: 75%;
+    animation: bottomtotop 500ms ease 10ms 1 normal none;
+}
+
 .first-div {
     text-align: center;
-    /* transition: all 0.3s ease-in-out; */
-    animation: toptobottom 300ms ease-in 0s 1 normal none;
 }
 
 .first-div h2 {
@@ -65,7 +85,6 @@ img {
 
 .trying {
     display: none;
-    animation: bottomtotop 300ms ease-in 0s normal;
 }
 
 .trying button {
@@ -82,30 +101,24 @@ img {
 
 @keyframes toptobottom {
     0% {
-        margin-top: -40%;
+        top: -150%;
+        opacity: 0;
     }
-    50% {
-        margin-top: -20%;
-    }
+
     100% {
-        margin-top: 0%;
+        top: -75%;
+        opacity: 1;
     }
 }
 
 @keyframes bottomtotop {
-    from {
-        transform: translateY(40px);
-    }
-    t0 {
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeOut {
     0% {
-        opacity: 1;
-    }
-    100% {
+        bottom: 0%;
         opacity: 0;
+    }
+
+    100% {
+        bottom: 75%;
+        opacity: 1;
     }
 }
